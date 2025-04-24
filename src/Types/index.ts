@@ -135,46 +135,50 @@ export interface sqlConnection extends Connection {
 }
 
 export type MySQLConfig = {
-	/* The hostname of the database you are connecting to. (Default: localhost) */
-	host?: string,
-	/* The port number to connect to. (Default: 3306) */
-	port?: number,
-	/* The MySQL user to authenticate as. (Default: root) */
-	user?: string,
-	/* The password of that MySQL user */
-	password: string,
-	/* Alias for the MySQL user password. Makes a bit more sense in a multifactor authentication setup (see "password2" and "password3") */
-	password1?: string,
-	/* 2nd factor authentication password. Mandatory when the authentication policy for the MySQL user account requires an additional authentication method that needs a password. */
-	password2?: string,
-	/* 3rd factor authentication password. Mandatory when the authentication policy for the MySQL user account requires two additional authentication methods and the last one needs a password. */
-	password3?: string,
-	/* Name of the database to use for this connection. (Default: base) */
-	database: string,
-	/* MySql table name. (Default: auth) */
-	tableName?: string,
-	/* Retry the query at each interval if it fails. (Default: 200ms) */
-	retryRequestDelayMs?: number,
-	/* Connection limit (Default: 10) */
-	connectionLimit?: number,
-	/* Maximum attempts if the query fails. (Default: 10) */
-	maxtRetries?: number,
-	queueLimit?: number,
-  enableKeepAlive?: boolean,
-  keepAliveInitialDelay?: number,
-	/* Session name to identify the connection, allowing multisessions with mysql. */
-	session: string,
-	/* The source IP address to use for TCP connection. */
-	localAddress?: string,
-	/* The path to a unix domain socket to connect to. When used host and port are ignored. */
-	socketPath?: string,
-	/* Allow connecting to MySQL instances that ask for the old (insecure) authentication method. (Default: false) */
-	insecureAuth?: boolean,
-	/* If your connection is a server. (Default: false) */
-	isServer?: boolean,
-	/* Use the config SSL. (Default: disabled) */
-	ssl?: string | SslOptions
+  /** The hostname of the database you are connecting to. (Default: localhost) */
+  host?: string
+  /** The port number to connect to. (Default: 3306) */
+  port?: number
+  /** The MySQL user to authenticate as. (Default: root) */
+  user?: string
+  /** The password of that MySQL user */
+  password: string
+  /** Alias for the MySQL user password. Makes a bit more sense in a multifactor authentication setup (see "password2" and "password3") */
+  password1?: string
+  /** 2nd factor authentication password. Mandatory when the authentication policy for the MySQL user account requires an additional authentication method that needs a password. */
+  password2?: string
+  /** 3rd factor authentication password. Mandatory when the authentication policy for the MySQL user account requires two additional authentication methods and the last one needs a password. */
+  password3?: string
+  /** Name of the database to use for this connection. (Default: base) */
+  database: string
+  /** MySql table name. (Default: auth) */
+  tableName?: string
+  /** Retry the query at each interval if it fails. (Default: 200 ms) */
+  retryRequestDelayMs?: number
+  /** Connection limit for the pool. (Default: 10) */
+  connectionLimit?: number
+  /** Maximum attempts if the query fails. (Default: 10) */
+  maxtRetries?: number
+  /** Maximum number of queued connection requests. (Default: 0 — unlimited) */
+  queueLimit?: number
+  /** Enable TCP keep-alive on network connections. (Default: true) */
+  enableKeepAlive?: boolean
+  /** Initial delay before the first TCP keep-alive probe is sent, in milliseconds. (Default: 5000) */
+  keepAliveInitialDelay?: number
+  /** Session name to identify the connection, allowing multisessions with mysql. */
+  session: string
+  /** The source IP address to use for TCP connection. */
+  localAddress?: string
+  /** The path to a unix domain socket to connect to. When used, host and port are ignored. */
+  socketPath?: string
+  /** Allow connecting to MySQL instances that ask for the old (insecure) authentication method. (Default: false) */
+  insecureAuth?: boolean
+  /** If your connection is a server. (Default: false) */
+  isServer?: boolean
+  /** Use the config SSL options. (Default: disabled) */
+  ssl?: string | SslOptions
 }
+
 
 export type valueReplacer = {
 	data: number[]
