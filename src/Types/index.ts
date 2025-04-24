@@ -155,8 +155,13 @@ export type MySQLConfig = {
 	tableName?: string,
 	/* Retry the query at each interval if it fails. (Default: 200ms) */
 	retryRequestDelayMs?: number,
+	/* Connection limit (Default: 10) */
+	connectionLimit?: number,
 	/* Maximum attempts if the query fails. (Default: 10) */
 	maxtRetries?: number,
+	queueLimit?: number,
+  enableKeepAlive?: boolean,
+  keepAliveInitialDelay?: number,
 	/* Session name to identify the connection, allowing multisessions with mysql. */
 	session: string,
 	/* The source IP address to use for TCP connection. */

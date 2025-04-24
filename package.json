@@ -26,7 +26,7 @@
 	},
 	"dependencies": {
 		"libsignal": "github:adiwajshing/libsignal-node",
-		"mysql2": "^3.3.5"
+		"mysql2": "^3.14.0"
 	},
 	"devDependencies": {
 		"@adiwajshing/eslint-config": "github:adiwajshing/eslint-config",
